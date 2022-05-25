@@ -95,7 +95,7 @@ function App({ user, signOut }) {
             pet={pet}
             style={{
               textAlign: "left",
-              margin: "1rem",
+              margin: "2rem",
             }}
             overrides={{
               Close: {
