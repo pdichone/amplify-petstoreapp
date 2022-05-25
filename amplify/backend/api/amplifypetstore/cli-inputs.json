@@ -3,15 +3,19 @@
   "serviceConfiguration": {
     "apiName": "amplifypetstore",
     "serviceName": "AppSync",
-    "gqlSchemaPath": "/tmp/amplify-3e9be7a3-57ca-4be9-92e5-0ac12ed9f483/amplify/backend/api/amplifypetstore/schema.graphql",
+    "gqlSchemaPath": "/tmp/amplify-e2d7f0c5-badc-4d91-a46c-9298d39653f4/amplify/backend/api/amplifypetstore/schema.graphql",
     "defaultAuthType": {
-      "mode": "API_KEY",
-      "keyDescription": "api key description",
-      "expirationTime": 30
+      "mode": "AMAZON_COGNITO_USER_POOLS",
+      "cognitoUserPoolId": "authamplifypetstore"
     },
     "additionalAuthTypes": [
       {
         "mode": "AWS_IAM"
+      },
+      {
+        "mode": "API_KEY",
+        "keyDescription": "api key description",
+        "expirationTime": 30
       }
     ],
     "conflictResolution": {

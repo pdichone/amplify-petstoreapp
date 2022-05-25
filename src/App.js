@@ -6,8 +6,13 @@ import { Footer } from "./ui-components";
 
 import { AddPet } from "./ui-components";
 import { PetDetails } from "./ui-components";
+import { withAuthenticator } from "@aws-amplify/ui-react";
+import { Storage } from "@aws-amplify/storage";
 
-function App() {
+function App({ user, signOut }) {
+  async function saveFile() {
+    await Storage.put("test.txt", "Hello");
+  }
   const [showForm, setShowForm] = useState(false);
   const [showDetails, setShowDetails] = useState(false);
   const [pet, setPet] = useState();
@@ -64,14 +69,19 @@ function App() {
     },
   };
   const navbarOverrides = {
+    Button: {
+      onClick: signOut,
+    },
     image: {
-      src: "https://img.icons8.com/color/50/000000/cat",
+      src: user?.attributes?.profile,
+      //src: "https://img.icons8.com/color/50/000000/cat",
     },
     "Add Pet": {
       style: {
         cursor: "pointer",
       },
       onClick: () => {
+        // saveFile();
         setShowForm(!showForm);
       },
     },
@@ -141,4 +151,4 @@ function App() {
   );
 }
 
-export default App;
+export default withAuthenticator(App);
