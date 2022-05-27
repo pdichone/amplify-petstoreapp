@@ -81,15 +81,6 @@ export const schema = {
                     "properties": {
                         "rules": [
                             {
-                                "allow": "public",
-                                "operations": [
-                                    "create",
-                                    "update",
-                                    "delete",
-                                    "read"
-                                ]
-                            },
-                            {
                                 "provider": "userPools",
                                 "ownerField": "owner",
                                 "allow": "owner",
@@ -99,6 +90,14 @@ export const schema = {
                                     "update",
                                     "delete",
                                     "read"
+                                ]
+                            },
+                            {
+                                "allow": "private",
+                                "operations": [
+                                    "create",
+                                    "read",
+                                    "update"
                                 ]
                             }
                         ]
